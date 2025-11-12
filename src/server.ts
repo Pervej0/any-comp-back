@@ -1,12 +1,11 @@
 import { Server } from 'http';
-import express from 'express';
-const app = express();
-const port = 8080;
+import app from './app/app';
+import config from './app/config/index';
 
 let server: Server;
 const main = async () => {
-  server = app.listen(port, () => {
-    console.log('The Server is running on port', port);
+  server = app.listen(config.PORT, () => {
+    console.log('The Server is running on port', config.PORT);
   });
 };
 
