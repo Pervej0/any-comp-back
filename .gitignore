@@ -43,3 +43,9 @@ pids
 
 # Misc
 # Ign
+
+/generated/prisma
+
+/src/generated/prisma
+
+/src/generated/prisma
