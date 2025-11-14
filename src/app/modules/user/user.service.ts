@@ -1,4 +1,4 @@
-import { PrismaClient, User, userRole, userStatus } from '../../../generated/prisma/client';
+import { PrismaClient, User, UserRole, UserStatus } from '../../../generated/prisma/client';
 import bcrypt from 'bcrypt';
 import { TUser } from './user.interface';
 import config from '../../config';
@@ -101,8 +101,8 @@ export const changeUserRoleAndStatusDB = async (
   payload: {
     email?: string;
     id?: string;
-    status?: userStatus;
-    role?: userRole;
+    status?: UserStatus;
+    role?: UserRole;
   },
   user: JwtPayload
 ) => {
