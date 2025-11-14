@@ -18,21 +18,114 @@ model User {
   id        String     @id @default(uuid())
   name      String
   email     String     @unique
-  role      userRole
+  role      UserRole
   password  String
-  status    userStatus
+  status    UserStatus
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
 
   @@map("users")
 }
 
-enum userStatus {
+enum UserStatus {
   activate
   deactivate
 }
 
-enum userRole {
+enum UserRole {
   user
   admin
+}
+
+model specialist {
+  id                      String              @id @default(uuid())
+  average_rating          Decimal?
+  is_draft                Boolean             @default(false)
+  total_number_of_ratings Int                 @default(0)
+  title                   String
+  slug                    String
+  description             String?
+  base_price              Decimal
+  platform_fee            Decimal?
+  final_price             Decimal?
+  verification_status     VerificationStatus
+  is_verified             Boolean             @default(false)
+  duration_days           Int?
+  created_at              DateTime            @default(now())
+  updated_at              DateTime            @updatedAt
+  deleted_at              DateTime?
+  medias                  media[]
+  serviceOfferings        service_offerings[]
+
+  @@map("specialists")
+}
+
+enum VerificationStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+model media {
+  id            String    @id @default(uuid())
+  specialists   String? // FK
+  file_name     String
+  file_size     Int
+  display_order Int
+  mime_type     MimeType
+  media_type    MediaType
+  uploaded_at   DateTime?
+  deleted_at    DateTime?
+  created_at    DateTime  @default(now())
+  updated_at    DateTime  @updatedAt
+
+  // Relation (optional because screenshot only shows the FK)
+  specialist specialist? @relation(fields: [specialists], references: [id])
+}
+
+enum MimeType {
+  image
+  video
+  pdf
+  audio
+  other
+}
+
+enum MediaType {
+  avatar
+  banner
+  document
+  certificate
+  gallery
+  other
+}
+
+model platform_fee {
+  id                      String   @id @default(uuid())
+  tier_name               TierName
+  min_value               Int
+  max_value               Int
+  platform_fee_percentage Decimal
+  created_at              DateTime @default(now())
+  updated_at              DateTime @updatedAt
+
+  @@map("platform_fee")
+}
+
+enum TierName {
+  BASIC
+  STANDARD
+  PREMIUM
+}
+
+model service_offerings {
+  id          String   @id @default(uuid())
+  specialists String // FK → specialists.id (UUID)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relation
+  specialist specialist @relation(fields: [specialists], references: [id])
+
+  @@map("service_offerings")
 }
