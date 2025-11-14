@@ -11,12 +11,17 @@ import {
 } from './specialist.controller';
 const router = express.Router();
 
-router.post('/', auth(UserRole.admin), validationChecker(createSpecialistSchema), createSpecialist);
+router.post(
+  '/specialist',
+  auth(UserRole.admin),
+  validationChecker(createSpecialistSchema),
+  createSpecialist
+);
 
-router.get('/', auth(UserRole.admin, UserRole.user), getAllSpecialist);
+router.get('/specialists', auth(UserRole.admin, UserRole.user), getAllSpecialist);
 
 router.put(
-  '/:id',
+  '/specialists/:id',
   auth(UserRole.admin),
   validationChecker(updateSpecialistSchema),
   updateSpecialist

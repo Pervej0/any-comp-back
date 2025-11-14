@@ -19,6 +19,4 @@ export interface TSpecialist {
   created_at: Date;
   updated_at: Date;
   deleted_at?: Date;
-  medias?: any[]; // replace `any` with actual Media type if you have it
-  serviceOfferings?: any[]; // replace `any` with actual ServiceOffering type
 }

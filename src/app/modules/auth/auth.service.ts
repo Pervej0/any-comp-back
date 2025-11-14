@@ -4,7 +4,7 @@ import config from '../../config';
 import generateToken from '../../helper/generateToken';
 import CustomError from '../../errors/customError';
 import { JwtPayload } from 'jsonwebtoken';
-import { PrismaClient, userStatus } from '../../../generated/prisma/client';
+import { PrismaClient, UserStatus } from '../../../generated/prisma/client';
 const prisma = new PrismaClient();
 
 export const loginUserDB = async (payload: { email: string; password: string }) => {
@@ -14,7 +14,7 @@ export const loginUserDB = async (payload: { email: string; password: string }) 
     },
   });
 
-  if (isUserExist.status === userStatus.deactivate) {
+  if (isUserExist.status === UserStatus.deactivate) {
     throw new CustomError(
       StatusCodes.FORBIDDEN,
       'Your account is currently deactivated, please try again!'
@@ -60,7 +60,7 @@ export const changePasswordDB = async (
   payload: { newPassword: string; oldPassword: string }
 ) => {
   const getUser = await prisma.user.findUniqueOrThrow({
-    where: { email: user.email, status: userStatus.activate },
+    where: { email: user.email, status: UserStatus.activate },
   });
 
   const comparePassword = await bcrypt.compare(payload.oldPassword, getUser.password);

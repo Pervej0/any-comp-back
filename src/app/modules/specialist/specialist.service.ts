@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from '../../../generated/prisma/client';
 import { TSpecialist } from './specialist.interface';
 
 const prisma = new PrismaClient();
@@ -11,7 +11,7 @@ export const getAllSpecialistDB = async () => {
   return prisma.specialist.findMany();
 };
 
-export const updateSpecialistDB = async (id: string, data: TSpecialist) => {
+export const updateSpecialistDB = async (id: string, data: Partial<TSpecialist>) => {
   return prisma.specialist.update({
     where: { id },
     data,
