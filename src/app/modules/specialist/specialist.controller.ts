@@ -5,6 +5,7 @@ import {
   createSpecialistDB,
   deleteSpecialistDB,
   getAllSpecialistDB,
+  getSpecialistDB,
   updateSpecialistDB,
 } from './specialist.service';
 import sendResponse from '../../shared/sendResponse';
@@ -23,6 +24,16 @@ export const getAllSpecialist: RequestHandler = asyncCatch(async (req, res) => {
   sendResponse(res, {
     statusCode: StatusCodes.OK,
     message: 'Specialists retrieved successfully',
+    data: result,
+  });
+});
+
+export const getSpecialist: RequestHandler = asyncCatch(async (req, res) => {
+  const { id } = req.params;
+  const result = await getSpecialistDB(id);
+  return sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    message: 'Specialist retrieved successfully',
     data: result,
   });
 });

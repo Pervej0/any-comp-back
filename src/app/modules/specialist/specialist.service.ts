@@ -11,6 +11,10 @@ export const getAllSpecialistDB = async () => {
   return prisma.specialist.findMany();
 };
 
+export const getSpecialistDB = async (id: string) => {
+  return prisma.specialist.findUnique({ where: { id } });
+};
+
 export const updateSpecialistDB = async (id: string, data: Partial<TSpecialist>) => {
   return prisma.specialist.update({
     where: { id },
