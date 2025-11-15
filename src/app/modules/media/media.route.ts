@@ -10,10 +10,17 @@ import auth from '../../middleware/auth';
 import { UserRole } from '../../../generated/prisma/enums';
 import validationChecker from '../../middleware/validationChecker';
 import { createMediaSchema, updateMediaSchema } from './media.zodValidation';
+import { uploadMedia } from '../../middleware/uploadMedia';
 
 const router = Router();
 
-router.post('/media', auth(UserRole.admin), validationChecker(createMediaSchema), createMedia);
+router.post(
+  '/media',
+  auth(UserRole.admin),
+  validationChecker(createMediaSchema),
+  // uploadMedia.single('file'),
+  createMedia
+);
 
 router.get('/media', auth(UserRole.admin, UserRole.user), getAllMedia);
 
