@@ -7,6 +7,7 @@ import {
   createSpecialist,
   deleteSpecialist,
   getAllSpecialist,
+  getSpecialist,
   updateSpecialist,
 } from './specialist.controller';
 const router = express.Router();
@@ -19,8 +20,9 @@ router.post(
 );
 
 router.get('/specialists', auth(UserRole.admin, UserRole.user), getAllSpecialist);
+router.get('/specialist/:id', auth(UserRole.admin, UserRole.user), getSpecialist);
 
-router.put(
+router.patch(
   '/specialists/:id',
   auth(UserRole.admin),
   validationChecker(updateSpecialistSchema),

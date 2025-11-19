@@ -41,6 +41,7 @@ export const createUser: RequestHandler = asyncCatch(async (req, res) => {
 });
 
 export const updateUser: RequestHandler = asyncCatch(async (req: any, res) => {
+  console.log(req.body, 'xpxpxxpxpxxxxxxxxxx');
   const result = await updateUserDB(req.user, req.body);
 
   sendResponse(res, {

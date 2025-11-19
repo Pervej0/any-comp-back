@@ -34,6 +34,5 @@ export const updateSpecialistSchema = z.object({
     average_rating: z.number().optional(),
     total_number_of_ratings: z.number().optional(),
     duration_days: z.number().optional(),
-    deleted_at: z.date().optional(),
   }),
 });
