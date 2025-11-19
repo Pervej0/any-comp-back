@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES2022",
     "module": "CommonJS", // output CommonJS
-    "outDir": "./dist",
+    "outDir": "./public",
     "rootDir": "./src",
     "strict": true,
     "esModuleInterop": true, // allows default imports from CJS modules

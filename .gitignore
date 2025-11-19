@@ -16,7 +16,8 @@ pnpm-debug.log*
 .env.test.local
 .env.production.local
 
-# Build and cache
+# Build and 
+public/
 dist/
 build/
 .cache/
@@ -45,6 +46,12 @@ pids
 # Ign
 
 /generated/prisma
+
+/src/generated/prisma
+
+/src/generated/prisma
+
+.vercel
 
 /src/generated/prisma
 
