@@ -1,4 +1,4 @@
-import { UserRole, UserStatus } from '../../../generated/prisma/enums';
+import { UserRole, UserStatus } from "@prisma/client";
 
 export type TUser = {
   name: string;

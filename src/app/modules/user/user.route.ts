@@ -7,7 +7,7 @@ import {
   getAllUser,
   updateUser,
 } from './user.controller';
-import { UserRole } from '../../../generated/prisma/enums';
+import { UserRole } from '@prisma/client';
 import { UpdateUserValidationSchema, userValidationSchema } from './user.zodValidation';
 import validationChecker from '../../middleware/validationChecker';
 import auth from '../../middleware/auth';

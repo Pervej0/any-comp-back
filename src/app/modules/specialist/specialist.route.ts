@@ -1,7 +1,7 @@
 import express from 'express';
 import validationChecker from '../../middleware/validationChecker';
 import auth from '../../middleware/auth';
-import { UserRole } from '../../../generated/prisma/enums';
+import { UserRole } from '@prisma/client';
 import { createSpecialistSchema, updateSpecialistSchema } from './specialist.zodValidation';
 import {
   createSpecialist,

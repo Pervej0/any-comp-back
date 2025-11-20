@@ -1,4 +1,4 @@
-import { User, UserRole, UserStatus } from '../../../generated/prisma/client';
+import { User, UserRole, UserStatus } from '@prisma/client';
 import bcrypt from 'bcrypt';
 import { TUser } from './user.interface';
 import config from '../../config';

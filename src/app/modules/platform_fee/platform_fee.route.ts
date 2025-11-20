@@ -8,7 +8,7 @@ import {
 } from './platform_fee.controller';
 
 import auth from '../../middleware/auth';
-import { UserRole } from '../../../generated/prisma/enums';
+import { UserRole } from '@prisma/client';
 import validationChecker from '../../middleware/validationChecker';
 import { createPlatformFeeSchema, updatePlatformFeeSchema } from './platform_fee.zodValidation';
 

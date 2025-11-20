@@ -1,4 +1,4 @@
-import { MediaType, MimeType } from '../../../generated/prisma/enums';
+import { MediaType, MimeType } from "@prisma/client";
 
 export interface TMedia {
   id: string;

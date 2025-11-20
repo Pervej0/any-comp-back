@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { TierName } from '../../../generated/prisma/enums';
+import { TierName } from '@prisma/client';
 
 const tierNameEnum = z.enum(TierName);
 

@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { MediaType, MimeType } from '../../../generated/prisma/enums';
+import { MediaType, MimeType } from '@prisma/client';
 
 export const createMediaSchema = z.object({
   body: z.object({

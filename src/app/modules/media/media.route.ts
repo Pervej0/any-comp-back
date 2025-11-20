@@ -7,10 +7,10 @@ import {
   deleteMedia,
 } from './media.controller';
 import auth from '../../middleware/auth';
-import { UserRole } from '../../../generated/prisma/enums';
 import validationChecker from '../../middleware/validationChecker';
 import { createMediaSchema, updateMediaSchema } from './media.zodValidation';
 import { uploadMedia } from '../../middleware/uploadMedia';
+import { UserRole } from '@prisma/client';
 
 const router = Router();
 

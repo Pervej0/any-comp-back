@@ -1,4 +1,4 @@
-import { TierName } from '../../../generated/prisma/enums';
+import { TierName } from '@prisma/client';
 
 export interface TPlatformFee {
   id: string;

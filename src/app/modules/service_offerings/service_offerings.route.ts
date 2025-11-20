@@ -7,7 +7,7 @@ import {
   deleteServiceOffering,
 } from './service_offerings.controller';
 import auth from '../../middleware/auth';
-import { UserRole } from '../../../generated/prisma/enums';
+import { UserRole } from '@prisma/client';
 import {
   createServiceOfferingSchema,
   updateServiceOfferingSchema,
