@@ -45,18 +45,8 @@ pids
 # Misc
 # Ign
 
-/generated/prisma
+# /generated/prisma
 
-/src/generated/prisma
-
-/src/generated/prisma
+# /src/generated/prisma
 
 .vercel
-
-/src/generated/prisma
-
-/src/generated/prisma
-
-/src/generated/prisma
-
-/generated/prisma
