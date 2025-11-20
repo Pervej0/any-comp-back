@@ -1,4 +1,4 @@
-import { PrismaClient, User, UserRole, UserStatus } from '../../../generated/prisma/client';
+import { User, UserRole, UserStatus } from '../../../generated/prisma/client';
 import bcrypt from 'bcrypt';
 import { TUser } from './user.interface';
 import config from '../../config';
@@ -6,7 +6,7 @@ import { StatusCodes } from 'http-status-codes';
 import { JwtPayload } from 'jsonwebtoken';
 import { TJwtDecode } from '../../interface/global.type';
 import CustomError from '../../errors/customError';
-const prisma = new PrismaClient();
+import prisma from '../../lib/prisma';
 
 export const createUserDB = async (payload: TUser) => {
   payload.status = 'activate';

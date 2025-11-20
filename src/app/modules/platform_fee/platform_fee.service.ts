@@ -1,7 +1,6 @@
 import { PrismaClient } from '../../../generated/prisma/client';
+import prisma from '../../lib/prisma';
 import { TPlatformFee } from './platform_fee.interface';
-
-const prisma = new PrismaClient();
 
 export const createPlatformFeeDB = async (data: TPlatformFee) => {
   return prisma.platform_fee.create({ data });

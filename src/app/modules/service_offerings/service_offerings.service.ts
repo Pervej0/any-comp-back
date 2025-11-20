@@ -1,6 +1,4 @@
-import { PrismaClient } from '../../../generated/prisma/client';
-
-const prisma = new PrismaClient();
+import prisma from '../../lib/prisma';
 
 export const createServiceOfferingDB = async (data: { specialists: string }) => {
   return prisma.service_offerings.create({ data });

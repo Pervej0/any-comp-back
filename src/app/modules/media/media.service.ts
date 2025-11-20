@@ -1,7 +1,6 @@
 import { PrismaClient } from '../../../generated/prisma/client';
+import prisma from '../../lib/prisma';
 import { TMedia } from './media.interface';
-
-const prisma = new PrismaClient();
 
 export const createMediaDB = async (data: TMedia) => {
   return prisma.media.create({ data });

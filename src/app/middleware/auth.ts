@@ -4,8 +4,7 @@ import { StatusCodes } from 'http-status-codes';
 import config from '../config';
 import { JwtPayload, Secret } from 'jsonwebtoken';
 import decodedToken from '../helper/decodeToken';
-import { PrismaClient } from '../../generated/prisma/client';
-const prisma = new PrismaClient();
+import prisma from '../lib/prisma';
 
 const auth = (...roles: string[]) => {
   return async (req: Request & { user?: any }, res: Response, next: NextFunction) => {

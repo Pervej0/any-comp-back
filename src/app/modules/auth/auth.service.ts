@@ -4,8 +4,8 @@ import config from '../../config';
 import generateToken from '../../helper/generateToken';
 import CustomError from '../../errors/customError';
 import { JwtPayload } from 'jsonwebtoken';
-import { PrismaClient, UserStatus } from '../../../generated/prisma/client';
-const prisma = new PrismaClient();
+import { UserStatus } from '../../../generated/prisma/client';
+import prisma from '../../lib/prisma';
 
 export const loginUserDB = async (payload: { email: string; password: string }) => {
   const isUserExist = await prisma.user.findUniqueOrThrow({

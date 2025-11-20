@@ -1,7 +1,5 @@
-import { PrismaClient } from '../../../generated/prisma/client';
+import prisma from '../../lib/prisma';
 import { TSpecialist } from './specialist.interface';
-
-const prisma = new PrismaClient();
 
 export const createSpecialistDB = async (data: TSpecialist) => {
   return prisma.specialist.create({ data });
