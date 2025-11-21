@@ -1,17 +1,12 @@
 {
   "version": 2,
-  "buildCommand": "npm run build",
-  "installCommand": "npm install",
-  "framework": null,
-  "functions": {
-    "dist/server.js": {
-      "runtime": "nodejs20.x"
-    }
-  },
-  "routes": [
+  "builds": [
     {
-      "src": "/(.*)",
-      "dest": "dist/server.js"
+      "src": "dist/server.js",
+      "use": "@vercel/node"
     }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/dist/server.js" }
   ]
 }
